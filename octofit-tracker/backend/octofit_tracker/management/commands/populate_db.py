@@ -1,4 +1,5 @@
 
+
 from datetime import date, timedelta
 from django.core.management.base import BaseCommand
 from django.db import transaction
@@ -45,6 +46,7 @@ class Command(BaseCommand):
         # Leaderboard
         Leaderboard.objects.create(user=user1, score=100, rank=1, period='weekly')
         Leaderboard.objects.create(user=user2, score=80, rank=2, period='weekly')
-        Leaderboard.objects.create(user=user3, score=60, rank=3, period='weekly')
+        Leaderboard.objects.create
+(user=user3, score=60, rank=3, period='weekly')
 
         self.stdout.write(self.style.SUCCESS('OctoFit test data created: 3 users, 2 teams, 3 activities, 3 workouts, 3 leaderboard entries.'))
