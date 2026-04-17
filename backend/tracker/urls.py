@@ -14,6 +14,7 @@ router.register(r'activities', views.ActivityViewSet)
 router.register(r'leaderboard', views.LeaderboardViewSet)
 router.register(r'workouts', views.WorkoutViewSet)
 
+ # Example API endpoint: https://$CODESPACE_NAME-8000.app.github.dev/api/activities/
 urlpatterns = [
     path('', views.api_root, name='api-root'),
     path('api/', include(router.urls)),
