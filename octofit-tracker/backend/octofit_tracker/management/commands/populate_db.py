@@ -1,4 +1,7 @@
 # test data creation for OctoFit
+"""
+Populate the octofit_db database with test data
+"""
 from datetime import date
 from django.core.management.base import BaseCommand
 from django.db import transaction
@@ -11,8 +14,7 @@ from django.core.management.base import BaseCommand
 from django.db import transaction
 from tracker.models import User, Team, Activity, Workout, Leaderboard
 
-class Command(BaseCommand):
-    help = 'Populate the database with test data for users, teams, activities, workouts, and leaderboard.'
+    help = 'Populate the octofit_db database with test data'
 
     @transaction.atomic
     # test data creation
