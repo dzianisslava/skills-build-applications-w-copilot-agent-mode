@@ -13,6 +13,12 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def handle(self, *args, **options):
+        self.populate_test_data()
+
+    def populate_test_data(self):
+        """
+        Create test data for users, teams, activities, workouts, and leaderboard.
+        """
         today = date.today()
 
         # Users
