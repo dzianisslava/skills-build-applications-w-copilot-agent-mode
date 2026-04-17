@@ -4,14 +4,20 @@ Django settings for octofit_tracker project.
 (Copied from backend/config/settings.py)
 """
 
+
 from pathlib import Path
 import djongo
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-!m&ya2et6!t_97+jy&$evdb4=j8h0_ovhge$@pfgz1#+^!t_f@'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    f"{os.environ.get('CODESPACE_NAME', '')}-8000.app.github.dev"
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',

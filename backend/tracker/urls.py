@@ -1,3 +1,8 @@
+"""
+REST API endpoints are available at:
+    https://$CODESPACE_NAME-8000.app.github.dev/api/[component]/
+Example: https://$CODESPACE_NAME-8000.app.github.dev/api/activities/
+"""
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from . import views
