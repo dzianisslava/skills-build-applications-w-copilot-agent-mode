@@ -1,5 +1,6 @@
 .DS_Store
 
+<<<<<<< HEAD
 # Virtual Environment
 venv
 
@@ -31,3 +32,12 @@ yarn-error.log*
 # Python files
 *.pyc
 __pycache__/
+=======
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Django
+db.sqlite3
+>>>>>>> ae7778d (feat: update tracker app for MongoDB, CORS, and new API (users, teams, activities, leaderboard, workouts))
