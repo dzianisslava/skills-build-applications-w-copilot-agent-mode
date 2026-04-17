@@ -6,17 +6,17 @@ from tracker.models import User, Team, Activity, Workout, Leaderboard
 
 
 class Command(BaseCommand):
-    """
-    Management command to seed the database with test/example/sample data for OctoFit.
-    Populates users, teams, activities, workouts, and leaderboard.
-    """
-    help = 'Seed the database with test/example/sample data for users, teams, activities, workouts, and leaderboard.'
+from datetime import date
+from django.core.management.base import BaseCommand
+from django.db import transaction
+from tracker.models import User, Team, Activity, Workout, Leaderboard
+
+class Command(BaseCommand):
+    help = 'Populate the database with test data for users, teams, activities, workouts, and leaderboard.'
 
     @transaction.atomic
+    # test data creation
     def handle(self, *args, **options):
-        self.populate_test_data()
-
-    def populate_test_data(self):
         today = date.today()
 
         # Очистка старых данных
@@ -37,7 +37,7 @@ class Command(BaseCommand):
         team1.members.set([user1, user2])
         team2.members.set([user2, user3])
 
-        # Activities (замените type на activity_type, если нужно)
+        # Activities
         Activity.objects.create(user=user1, type='run', duration=30, calories=250, date=today)
         Activity.objects.create(user=user2, type='bike', duration=45, calories=400, date=today)
         Activity.objects.create(user=user3, type='swim', duration=60, calories=500, date=today)
