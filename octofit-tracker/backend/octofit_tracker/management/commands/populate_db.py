@@ -1,11 +1,10 @@
-from datetime import date, timedelta
 
+from datetime import date, timedelta
 from django.core.management.base import BaseCommand
 from django.db import transaction
-
 from tracker.models import User, Team, Activity, Workout, Leaderboard
 
-
+class Command(BaseCommand):
     help = 'Initialize and populate the OctoFit database with test data.'
 
     @transaction.atomic
