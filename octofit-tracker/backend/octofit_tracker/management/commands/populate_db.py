@@ -5,8 +5,11 @@ from django.db import transaction
 from tracker.models import User, Team, Activity, Workout, Leaderboard
 
 class Command(BaseCommand):
-    # test data creation
-    help = 'Initialize and populate the OctoFit database with test data.'
+    """
+    Django management command to populate the database with test data for users, teams, activities, workouts, and leaderboard.
+    This command creates test data for development and testing purposes.
+    """
+    help = 'Populate the database with test data for users, teams, activities, workouts, and leaderboard.'
 
     @transaction.atomic
     def handle(self, *args, **options):
