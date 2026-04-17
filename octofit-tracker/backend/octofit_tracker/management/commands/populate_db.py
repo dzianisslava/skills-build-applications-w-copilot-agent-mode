@@ -1,10 +1,16 @@
+# test data creation for OctoFit
 from datetime import date
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from tracker.models import User, Team, Activity, Workout, Leaderboard
 
+
 class Command(BaseCommand):
-    help = 'Populate the database with test data for users, teams, activities, workouts, and leaderboard.'
+    """
+    Management command to seed the database with test/example/sample data for OctoFit.
+    Populates users, teams, activities, workouts, and leaderboard.
+    """
+    help = 'Seed the database with test/example/sample data for users, teams, activities, workouts, and leaderboard.'
 
     @transaction.atomic
     def handle(self, *args, **options):
