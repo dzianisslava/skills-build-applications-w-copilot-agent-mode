@@ -1,5 +1,27 @@
 import React, { useEffect, useState } from 'react';
 
+const mangaManiacsDetails = {
+  description: 'Explore the fantastic stories of the most interesting characters from Japanese Manga (graphic novels).',
+  schedule: 'Tuesdays at 7pm',
+  maxAttendance: 15,
+};
+
+function buildActivityDetails(activity) {
+  if (activity.type === 'Manga Maniacs') {
+    return [
+      mangaManiacsDetails.description,
+      `Schedule: ${mangaManiacsDetails.schedule}`,
+      `Max attendance: ${mangaManiacsDetails.maxAttendance}`,
+    ];
+  }
+
+  return [
+    `Duration: ${activity.duration} minutes`,
+    `Calories: ${activity.calories}`,
+    `Date: ${activity.date}`,
+  ];
+}
+
 const Activities = () => {
   const [activities, setActivities] = useState([]);
   const apiUrl = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/activities/`;
@@ -34,8 +56,12 @@ const Activities = () => {
                 {activities.map((activity, idx) => (
                   <tr key={activity.id || idx}>
                     <td>{activity.id || idx + 1}</td>
-                    <td>{activity.name || '-'}</td>
-                    <td><pre className="mb-0 small">{JSON.stringify(activity, null, 2)}</pre></td>
+                    <td>{activity.type || activity.name || '-'}</td>
+                    <td>
+                      {buildActivityDetails(activity).map((detail) => (
+                        <div key={detail}>{detail}</div>
+                      ))}
+                    </td>
                   </tr>
                 ))}
               </tbody>
